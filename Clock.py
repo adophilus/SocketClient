@@ -13,12 +13,9 @@ class Clock(object):
 			self.timeThread.start()
 
 	def tick(self):
-		while True:
-			if self.isTicking:
-				self.ctime += .5
-				sleep(.5)
-			else:
-				break
+		while self.isTicking:
+			self.ctime += .5
+			sleep(.5)
 
 	def stop(self):
 		self.isTicking = False

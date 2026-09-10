@@ -68,11 +68,11 @@ class SocketClient (General):
 				self.processReceivedData();
 
 
-	def processReceivedData (self):
+	def processReceivedData(self):
 		try:
-			data = self.socket.recv(self._buffer); # Receive data from server
-			data = data.decode("utf-8"); # Decode the received data
-			if not data == "":
+			data = self.socket.recv(self._buffer)
+			data = data.decode("utf-8")
+			if data != "":
 				data = self.jsonize(data); # Convert the data to json format (i.e: dict)
 
 				self.onReceiveCallback(data, None);
